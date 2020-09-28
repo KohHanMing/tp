@@ -22,6 +22,7 @@ public class Person {
 
     // Data fields
     private final Address address;
+    private final Remark remark;
     private final QuarantineStatus quarantineStatus;
     private final InfectionStatus infectionStatus;
     private final Set<Tag> tags = new HashSet<>();
@@ -29,13 +30,15 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, QuarantineStatus quarantineStatus,
+    public Person(Name name, Phone phone, Email email, Address address, Remark remark,
+                  QuarantineStatus quarantineStatus,
                   InfectionStatus infectionStatus, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, quarantineStatus, infectionStatus, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.remark = remark;
         this.quarantineStatus = quarantineStatus;
         this.infectionStatus = infectionStatus;
         this.tags.addAll(tags);
@@ -55,6 +58,10 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Remark getRemark() {
+        return remark;
     }
 
     public QuarantineStatus getQuarantineStatus() {
@@ -127,6 +134,8 @@ public class Person {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Remark: ")
+                .append(getRemark())
                 .append(" Quarantine Status: ")
                 .append(getQuarantineStatus())
                 .append(" Infected: ")

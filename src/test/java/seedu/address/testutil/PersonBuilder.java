@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Remark;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.InfectionStatus;
 import seedu.address.model.person.Name;
@@ -22,6 +23,7 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final String DEFAULT_REMARK = "";
     public static final String DEFAULT_QUARANTINE_STATUS = "false";
     public static final String DEFAULT_INFECTION_STATUS = "false";
 
@@ -29,6 +31,7 @@ public class PersonBuilder {
     private Phone phone;
     private Email email;
     private Address address;
+    private Remark remark;
     private QuarantineStatus quarantineStatus;
     private InfectionStatus infectionStatus;
     private Set<Tag> tags;
@@ -41,6 +44,7 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
+        remark = new Remark(DEFAULT_REMARK);
         quarantineStatus = new QuarantineStatus(DEFAULT_QUARANTINE_STATUS);
         infectionStatus = new InfectionStatus(DEFAULT_INFECTION_STATUS);
         tags = new HashSet<>();
@@ -54,6 +58,7 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
+        remark = personToCopy.getRemark();
         quarantineStatus = personToCopy.getQuarantineStatus();
         infectionStatus = personToCopy.getInfectionStatus();
         tags = new HashSet<>(personToCopy.getTags());
@@ -80,6 +85,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withAddress(String address) {
         this.address = new Address(address);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Remark} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withRemark(String remark) {
+        this.remark = new Remark(remark);
         return this;
     }
 
@@ -119,6 +132,6 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, quarantineStatus, infectionStatus, tags);
+        return new Person(name, phone, email, address, remark, quarantineStatus, infectionStatus, tags);
     }
 }

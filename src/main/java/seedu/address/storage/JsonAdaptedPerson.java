@@ -17,6 +17,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.QuarantineStatus;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -104,6 +105,8 @@ class JsonAdaptedPerson {
         }
         final Email modelEmail = new Email(email);
 
+        final Remark modelRemark = new Remark(""); //TODO: Implement parsing and marshalling in the storage commit.
+
         if (address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
         }
@@ -132,7 +135,7 @@ class JsonAdaptedPerson {
         final InfectionStatus modelInfectionStatus = new InfectionStatus(infectionStatus);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelQuarantineStatus,
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelRemark, modelQuarantineStatus,
                 modelInfectionStatus, modelTags);
     }
 
