@@ -19,9 +19,6 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
-
-    // Data fields
-    private final Address address;
     private final QuarantineStatus quarantineStatus;
     private final InfectionStatus infectionStatus;
     private final Set<Tag> tags = new HashSet<>();
@@ -29,13 +26,12 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, QuarantineStatus quarantineStatus,
+    public Person(Name name, Phone phone, Email email, QuarantineStatus quarantineStatus,
                   InfectionStatus infectionStatus, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, quarantineStatus, infectionStatus, tags);
+        requireAllNonNull(name, phone, email, quarantineStatus, infectionStatus, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
         this.quarantineStatus = quarantineStatus;
         this.infectionStatus = infectionStatus;
         this.tags.addAll(tags);
@@ -51,10 +47,6 @@ public class Person {
 
     public Email getEmail() {
         return email;
-    }
-
-    public Address getAddress() {
-        return address;
     }
 
     public QuarantineStatus getQuarantineStatus() {
@@ -105,7 +97,6 @@ public class Person {
         return otherPerson.getName().equals(getName())
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
-                && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getQuarantineStatus().equals(getQuarantineStatus())
                 && otherPerson.getInfectionStatus().equals(getInfectionStatus())
                 && otherPerson.getTags().equals(getTags());
@@ -114,7 +105,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, quarantineStatus, infectionStatus, tags);
+        return Objects.hash(name, phone, email, quarantineStatus, infectionStatus, tags);
     }
 
     @Override
@@ -125,8 +116,6 @@ public class Person {
                 .append(getPhone())
                 .append(" Email: ")
                 .append(getEmail())
-                .append(" Address: ")
-                .append(getAddress())
                 .append(" Quarantine Status: ")
                 .append(getQuarantineStatus())
                 .append(" Infected: ")

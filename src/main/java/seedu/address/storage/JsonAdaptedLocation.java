@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.location.Location;
-import seedu.address.model.person.Address;
 import seedu.address.model.person.Name;
 
 /**
@@ -15,15 +14,13 @@ public class JsonAdaptedLocation {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Location's %s field is missing!";
 
     private final String name;
-    private final String address;
 
     /**
      * Constructs a {@code JsonAdaptedLocation} with the given location details.
      */
     @JsonCreator
-    public JsonAdaptedLocation(@JsonProperty("name") String name, @JsonProperty("address") String address) {
+    public JsonAdaptedLocation(@JsonProperty("name") String name) {
         this.name = name;
-        this.address = address;
     }
 
     /**
@@ -31,7 +28,6 @@ public class JsonAdaptedLocation {
      */
     public JsonAdaptedLocation(Location source) {
         name = source.getName().fullName;
-        address = source.getAddress().value;
     }
 
     /**
@@ -48,14 +44,6 @@ public class JsonAdaptedLocation {
         }
         final Name modelName = new Name(name);
 
-        if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
-        }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
-        }
-        final Address modelAddress = new Address(address);
-
-        return new Location(modelName, modelAddress);
+        return new Location(modelName);
     }
 }

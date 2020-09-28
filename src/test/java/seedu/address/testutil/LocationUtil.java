@@ -23,7 +23,6 @@ public class LocationUtil {
     public static String getLocationDetails(Location location) {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_NAME + location.getName().fullName + " ");
-        sb.append(PREFIX_ADDRESS + location.getAddress().value + " ");
         return sb.toString();
     }
 }

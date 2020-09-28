@@ -42,19 +42,19 @@ public class PersonTest {
         assertFalse(ALICE.isSamePerson(editedAlice));
 
         // same name, same phone, different attributes -> returns true
-        editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+        editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB)
                 .withQuarantineStatus(VALID_QUARANTINE_STATUS_BOB).withTags(VALID_TAG_HUSBAND)
                 .withInfectionStatus(VALID_INFECTION_STATUS_BOB).build();
         assertTrue(ALICE.isSamePerson(editedAlice));
 
         // same name, same email, different attributes -> returns true
-        editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)
+        editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB)
                 .withQuarantineStatus(VALID_QUARANTINE_STATUS_BOB).withTags(VALID_TAG_HUSBAND)
                 .withInfectionStatus(VALID_INFECTION_STATUS_BOB).build();
         assertTrue(ALICE.isSamePerson(editedAlice));
 
         // same name, same phone, same email, different attributes -> returns true
-        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB)
+        editedAlice = new PersonBuilder(ALICE)
                 .withQuarantineStatus(VALID_QUARANTINE_STATUS_BOB).withTags(VALID_TAG_HUSBAND)
                 .withInfectionStatus(VALID_INFECTION_STATUS_BOB).build();
         assertTrue(ALICE.isSamePerson(editedAlice));
@@ -88,10 +88,6 @@ public class PersonTest {
 
         // different email -> returns false
         editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
-        assertFalse(ALICE.equals(editedAlice));
-
-        // different address -> returns false
-        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
         // different quarantine status -> returns false

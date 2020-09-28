@@ -40,7 +40,7 @@ public class UniqueLocationListTest {
     @Test
     public void contains_locationWithSameIdentityFieldsInList_returnsTrue() {
         uniqueLocationList.add(ALICE_LOCATION);
-        Location editedAlice = new LocationBuilder(ALICE_LOCATION).withAddress(VALID_ADDRESS_BOB).build();
+        Location editedAlice = new LocationBuilder(ALICE_LOCATION).build();
         assertTrue(uniqueLocationList.contains(editedAlice));
     }
 
@@ -83,7 +83,7 @@ public class UniqueLocationListTest {
     @Test
     public void setLocation_editedLocationHasSameIdentity_success() {
         uniqueLocationList.add(ALICE_LOCATION);
-        Location editedAlice = new LocationBuilder(ALICE_LOCATION).withAddress(VALID_ADDRESS_BOB).build();
+        Location editedAlice = new LocationBuilder(ALICE_LOCATION).build();
         uniqueLocationList.setLocation(ALICE_LOCATION, editedAlice);
         UniqueLocationList expectedUniqueLocationList = new UniqueLocationList();
         expectedUniqueLocationList.add(editedAlice);

@@ -44,7 +44,7 @@ public class LocationBookTest {
     @Test
     public void resetData_withDuplicateLocations_throwsDuplicateLocationException() {
         // Two locations with the same identity fields
-        Location editedAlice = new LocationBuilder(ALICE_LOCATION).withAddress(VALID_ADDRESS_BOB).build();
+        Location editedAlice = new LocationBuilder(ALICE_LOCATION).build();
         List<Location> newLocations = Arrays.asList(ALICE_LOCATION, editedAlice);
         LocationBookTest.LocationBookStub newData = new LocationBookTest.LocationBookStub(newLocations);
 
@@ -70,7 +70,7 @@ public class LocationBookTest {
     @Test
     public void hasLocation_locationWithSameIdentityFieldsInLocationBook_returnsTrue() {
         locationBook.addLocation(ALICE_LOCATION);
-        Location editedAlice = new LocationBuilder(ALICE_LOCATION).withAddress(VALID_ADDRESS_BOB).build();
+        Location editedAlice = new LocationBuilder(ALICE_LOCATION).build();
         assertTrue(locationBook.hasLocation(editedAlice));
     }
 

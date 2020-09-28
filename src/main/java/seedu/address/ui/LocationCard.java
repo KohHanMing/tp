@@ -33,9 +33,6 @@ public class LocationCard extends UiPart<Region> {
     private Label name;
 
     @FXML
-    private Label address;
-
-    @FXML
     private Label id;
 
 
@@ -47,7 +44,6 @@ public class LocationCard extends UiPart<Region> {
         this.location = location;
         id.setText(displayedIndex + ". ");
         name.setText(location.getName().fullName);
-        address.setText(location.getAddress().value);
     }
 
     @Override

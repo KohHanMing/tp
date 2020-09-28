@@ -4,7 +4,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
 
-import seedu.address.model.person.Address;
 import seedu.address.model.person.Name;
 
 /**
@@ -16,24 +15,16 @@ public class Location {
     // Identity fields
     private final Name name;
 
-    // Data fields
-    private final Address address;
-
     /**
      * Every field must be present and not null.
      */
-    public Location(Name name, Address address) {
-        requireAllNonNull(name, address);
+    public Location(Name name) {
+        requireAllNonNull(name);
         this.name = name;
-        this.address = address;
     }
 
     public Name getName() {
         return name;
-    }
-
-    public Address getAddress() {
-        return address;
     }
 
     /**
@@ -64,22 +55,19 @@ public class Location {
         }
 
         Location otherLocation = (Location) other;
-        return otherLocation.getName().equals(getName())
-                && otherLocation.getAddress().equals(getAddress());
+        return otherLocation.getName().equals(getName());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, address);
+        return Objects.hash(name);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName())
-                .append(" Address: ")
-                .append(getAddress());
+        builder.append(getName());
         return builder.toString();
     }
 }

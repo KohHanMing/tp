@@ -17,31 +17,31 @@ import seedu.address.model.location.Location;
  */
 public class TypicalLocations {
     public static final Location ALICE_LOCATION = new LocationBuilder().withName("Alice Pauline House")
-            .withAddress("123, Jurong West Ave 6, #08-111").build();
+            .build();
     public static final Location BENSON_LOCATION = new LocationBuilder().withName("Benson Meier House")
-            .withAddress("311, Clementi Ave 2, #02-25").build();
+            .build();
     public static final Location CARL_LOCATION = new LocationBuilder().withName("Carl Kurz House")
-            .withAddress("wall street").build();
+            .build();
     public static final Location DANIEL_LOCATION = new LocationBuilder().withName("Daniel Meier House")
-            .withAddress("10th street").build();
+            .build();
     public static final Location ELLE_LOCATION = new LocationBuilder().withName("Elle Meyer House")
-            .withAddress("michegan ave").build();
+            .build();
     public static final Location FIONA_LOCATION = new LocationBuilder().withName("Fiona Kunz House")
-            .withAddress("little tokyo").build();
+            .build();
     public static final Location GEORGE_LOCATION = new LocationBuilder().withName("George Best House")
-            .withAddress("4th street").build();
+            .build();
 
     // Manually added
     public static final Location HOON_LOCATION = new LocationBuilder().withName("Hoon Meier House")
-            .withAddress("little india").build();
+            .build();
     public static final Location IDA_LOCATION = new LocationBuilder().withName("Ida Mueller House")
-            .withAddress("chicago ave").build();
+            .build();
 
     // Manually added - Location's details found in {@code CommandTestUtil}
     public static final Location AMY_LOCATION = new LocationBuilder().withName(VALID_NAME_AMY)
-            .withAddress(VALID_ADDRESS_AMY).build();
+            .build();
     public static final Location BOB_LOCATION = new LocationBuilder().withName(VALID_NAME_BOB)
-            .withAddress(VALID_ADDRESS_BOB).build();
+            .build();
 
     private TypicalLocations() {} // prevents instantiation
 

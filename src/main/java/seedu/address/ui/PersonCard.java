@@ -35,8 +35,6 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label phone;
     @FXML
-    private Label address;
-    @FXML
     private Label email;
     @FXML
     private Label quarantineStatus;
@@ -54,7 +52,6 @@ public class PersonCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
         quarantineStatus.setText("Quarantine Status: " + person.getQuarantineStatus().toString());
         infectionStatus.setText("Infected: " + person.getInfectionStatus().getStatusAsString());
